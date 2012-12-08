@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Text;
 using MobileVehicleInspection.Contracts;
 
 namespace MobileVehicleInspection.Api.Library
@@ -17,7 +18,7 @@ namespace MobileVehicleInspection.Api.Library
 
         public Vehicle ByRegistration(RegistrationNumber registration)
         {
-            var client = new WebClient();
+            var client = new WebClient {Encoding = Encoding.UTF8};
             var url = new Uri(String.Format(_settings.UrlTemplate, registration));
             string result = null;
             try
