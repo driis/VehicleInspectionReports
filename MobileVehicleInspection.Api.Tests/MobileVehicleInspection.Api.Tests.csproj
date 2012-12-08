@@ -77,17 +77,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library\DanishTransportAuthorityResponseParserTests.cs" />
     <Compile Include="Library\RegistrationNumberTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Library\valid.html" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MobileVehicleInspection.Api\MobileVehicleInspection.Api.csproj">
       <Project>{27D3B211-901F-47CC-BD18-DA61FA6D900D}</Project>
       <Name>MobileVehicleInspection.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobileVehicleInspection.Contracts\MobileVehicleInspection.Contracts.csproj">
+      <Project>{BF6263C1-7790-449C-8803-FAE5CE6AB42A}</Project>
+      <Name>MobileVehicleInspection.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
