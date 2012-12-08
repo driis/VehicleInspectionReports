@@ -18,8 +18,10 @@ namespace MobileVehicleInspection.Api.Tests.Library
                 valid = reader.ReadToEnd();
 
             Vehicle result = sut.Parse(valid);
-            Assert.Inconclusive();
-            Assert.AreEqual(new RegistrationNumber("XK95962"), result.RegistrationNumber);
+            Assert.AreEqual("XK95962", result.RegistrationNumber);
+            Assert.AreEqual("VOLKSWAGEN", result.Make);
+            Assert.AreEqual("GOLF", result.Model);
+            Assert.AreEqual("WVWZZZ1HZSW218578", result.Vin);
         } 
     }
 }
