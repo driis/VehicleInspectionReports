@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{257F23
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileVehicleInspection.Contracts", "MobileVehicleInspection.Contracts\MobileVehicleInspection.Contracts.csproj", "{BF6263C1-7790-449C-8803-FAE5CE6AB42A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileVehicleInspection.Api.Tests", "MobileVehicleInspection.Api.Tests\MobileVehicleInspection.Api.Tests.csproj", "{32B5EF44-CA29-45D1-85AE-B8CF33075C38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{BF6263C1-7790-449C-8803-FAE5CE6AB42A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF6263C1-7790-449C-8803-FAE5CE6AB42A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF6263C1-7790-449C-8803-FAE5CE6AB42A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32B5EF44-CA29-45D1-85AE-B8CF33075C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32B5EF44-CA29-45D1-85AE-B8CF33075C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32B5EF44-CA29-45D1-85AE-B8CF33075C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32B5EF44-CA29-45D1-85AE-B8CF33075C38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
