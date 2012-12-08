@@ -1,5 +1,7 @@
 ﻿using System.Web;
 using Funq;
+using MobileVehicleInspection.Api.Library;
+using ServiceStack.Text;
 using ServiceStack.WebHost.Endpoints;
 
 [assembly: PreApplicationStartMethod(typeof(MobileVehicleInspection.Api.Services.ServiceStackAppHost), "Start")]
@@ -14,7 +16,14 @@ namespace MobileVehicleInspection.Api.Services
         }
 
         public override void Configure(Container container)
-        {           
+        {
+            JsConfig.EmitCamelCaseNames = true;
+
+            container.Register(new ScraperSettings{
+                UrlTemplate = "http://selvbetjening.trafikstyrelsen.dk/Sider/resultater.aspx?Reg={0}"
+            });
+            container.RegisterAutoWiredAs<DanishTransportAuthorityScraper, IVehicleInspectionLookup>();
+            container.RegisterAutoWired<DanishTransportAuthorityResponseParser>();
         }
 
         public static void Start()

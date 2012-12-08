@@ -95,6 +95,7 @@
     <Compile Include="Library\IVehicleInspectionLookup.cs" />
     <Compile Include="Library\RegistrationNumber.cs" />
     <Compile Include="Library\VehicleIdentificationNumber.cs" />
+    <Compile Include="Library\XmlExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ServiceStackAppHost.cs" />
     <Compile Include="Services\VehicleInspectionService.cs" />

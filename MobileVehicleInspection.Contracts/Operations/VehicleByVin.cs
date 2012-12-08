@@ -8,4 +8,10 @@ namespace MobileVehicleInspection.Contracts.Operations
     {
         public string Vin { get; set; }
     }
+
+    [Route("vehicle/registration/{RegistrationNumber}", HttpMethods.Get)]
+    public class VehicleByRegistration : IReturn<Vehicle>
+    {
+        public string RegistrationNumber { get; set; }
+    }
 }

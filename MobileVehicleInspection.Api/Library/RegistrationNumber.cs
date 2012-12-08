@@ -51,6 +51,11 @@ namespace MobileVehicleInspection.Api.Library
             return _value.GetHashCode();
         }
 
+        public override string ToString()
+        {
+            return Value;
+        }
+
         public static bool operator ==(RegistrationNumber left, RegistrationNumber right)
         {
             return Equals(left, right);

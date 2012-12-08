@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net;
-using System.Threading.Tasks;
 using MobileVehicleInspection.Contracts;
 
 namespace MobileVehicleInspection.Api.Library
@@ -16,14 +15,14 @@ namespace MobileVehicleInspection.Api.Library
             _parser = parser;
         }
 
-        public async Task<Vehicle> ByRegistration(RegistrationNumber registration)
+        public Vehicle ByRegistration(RegistrationNumber registration)
         {
             var client = new WebClient();
             var url = new Uri(String.Format(_settings.UrlTemplate, registration));
             string result = null;
             try
             {
-                result = await client.DownloadStringTaskAsync(url);
+                result = client.DownloadString(url);
             }
             catch (WebException wex)
             {
