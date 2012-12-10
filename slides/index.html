@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Presentation</title>
+
+    <meta charset='utf-8'>
+    <script src='slides.js'></script>
+  </head>
+  
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+    
+    
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-default'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below.
+        
+        
+      
+      <article class='biglogo'>
+      </article>
+ -->
+      <article>
+        <h1>
+        <img src="http://servicestack.net/logo-servicestack.png" alt="ServiceStack" />
+          <br>
+          What and Why ?
+        </h1>
+        <p>
+          Dennis Riis
+          <br>
+          14/12, 2012
+        </p>
+      </article>
+      
+      <article>
+
+        <h3>
+          "Thoughtfully architected, obscenely fast, 
+thoroughly enjoyable web services for all."
+        </h3>        
+        <ul>
+            <li>Simple</li>
+            <li>Fast</li>
+            <li>Lightweight</li>
+            <li>Testable</li>
+            <li>Clean</li>
+        </ul>        
+      </article>
+
+      <article>
+        <h3>
+          Simple
+        </h3>
+        <p>
+          <ul>
+            <li>C# Model driven development</li>
+            <li>DTOs with no dependencies<li>
+            <li>DTO in/out: No dependencies on specific formats or endpoints</li>
+            <li>Supports JSON, XML, JSV and <strike>SOAP</strike> out of the box</li>
+            <li>Automatic, code free content negotiation</li>
+          </ul>
+        </p>        
+      </article>
+
+      <article>
+        <h3>
+          Fast
+        </h3>
+        <p>
+          <ul>
+            <li>Builds on raw IHttpHandler, no extra fluff</li>
+            <li>ServiceStack.Text: Fastest .NET JSON Serializer<li>
+            <li>Cache support built in (<i>and Redis client, and cache provider for Redis</i>)</li>
+            <li>Built-in MiniProfiler</li>
+          </ul>
+
+        </p>        
+          <h3>
+          Lightweight
+        </h3>
+        <ul>
+          <li>Code first (code only)</li>
+          <li>No configuration hell (I am looking at you, WCF)</li>
+          <li>Decoupled, no base class requirements, etc.</li>
+        </ul>
+        
+      </article>
+
+      <article>
+        <img src="images/json-benchmarks.png" width="800" alt="Benchmarks"/>
+      </article>
+
+      <article>
+        <h3>Testable</h3>
+        <ul>
+          <li>
+            Code unit tests without depencies       
+          </li>
+          <li>
+            Built in self-hosting, allows to run unit tests as integration tests in any format
+          </li>          
+          <li>
+            HTML format, quickly look at the response in the browser.
+          </li>
+          <li>
+            Metadata browser
+          </li>
+        </ul>
+        <h3>Clean</h3>
+        <ul>
+          <li>Nice and well thought out framework</li>
+          <li>Separates messages from implementation</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Personal experiences
+        </h3>
+        <ul class="build">
+          <li>
+            Easy to learn, easy to get started
+          </li>
+          <li>
+            Easy to get support (StackOverflow is #1 resource)
+          </li>
+          <li>
+            Well maintained, very active
+          </li>
+          <li>
+            Time from pull request to new release: 18 hours.
+          </li>
+        </ul>
+      </article>
+
+      <article >
+        <h2>
+          Code time !
+        </h2>
+        <ul class="build">
+          <li>
+            Simple demo example first</li>
+          <li>
+            Then real world usage on DBA
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Why not MS Web API ?
+        </h3>
+        <p>
+          <ul>
+            <li>Web API is coupled to a controller (forced base class), ServiceStack is not</li>
+            <li>Web API is more closely coupled to the http request, ServiceStack is opt-in to access http details</li>
+            <li>Web API is R1, ServiceStack around since 2008</li>
+            <li>ServiceStack is cleaner, and simpler: less development friction</li>            
+          </ul>
+          The two frameworks has similar features, but ServiceStack comes with more "in the box"          
+        </p>
+      </article>
+
+      <article>
+        <h3>Resources</h3>
+        <p>
+          <ul>
+            <li><a href="http://www.servicestack.net">ServiceStack.NET</a> and <a href="https://github.com/ServiceStack/ServiceStack">GitHub</a> (See the examples)        
+            </li>
+            <li>
+              Ask questions on StackOverflow, "official" support channel
+            </li>
+            <li>
+              Follow @demisbellot on Twitter.
+            </li>
+          </ul>
+          <img src="images/lastslide.jpg" style="float:right;" />        
+          <h2>Questions?</h2>
+        </p>
+    </section>
+  </body>
+</html>
