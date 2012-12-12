@@ -1,6 +1,7 @@
 ﻿using System.Web;
 using Funq;
 using MobileVehicleInspection.Api.Library;
+using ServiceStack.MiniProfiler;
 using ServiceStack.Text;
 using ServiceStack.WebHost.Endpoints;
 
@@ -17,8 +18,7 @@ namespace MobileVehicleInspection.Api.Services
 
         public override void Configure(Container container)
         {
-            JsConfig.EmitCamelCaseNames = true;
-
+            JsConfig.EmitCamelCaseNames = true;            
             container.Register(new ScraperSettings{
                 UrlTemplate = "http://selvbetjening.trafikstyrelsen.dk/Sider/resultater.aspx?{0}={1}"
             });
