@@ -20,7 +20,7 @@ namespace MobileVehicleInspection.Api.Services
             JsConfig.EmitCamelCaseNames = true;
 
             container.Register(new ScraperSettings{
-                UrlTemplate = "http://selvbetjening.trafikstyrelsen.dk/Sider/resultater.aspx?Reg={0}"
+                UrlTemplate = "http://selvbetjening.trafikstyrelsen.dk/Sider/resultater.aspx?{0}={1}"
             });
             container.RegisterAutoWiredAs<DanishTransportAuthorityScraper, IVehicleInspectionLookup>();
             container.RegisterAutoWired<DanishTransportAuthorityResponseParser>();

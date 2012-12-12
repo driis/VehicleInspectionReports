@@ -11,14 +11,17 @@ namespace MobileVehicleInspection.Api.Library
         {
             Guard.NotNullOrWhitespace(() => registration);
             string cleaned = registration.Trim().Replace(" ", String.Empty);
-            
-            
             _value = cleaned;
         }
 
         public string Value
         {
             get { return _value; }
+        }
+
+        public override string ToString()
+        {
+            return Value;
         }
     }
 }

@@ -80,6 +80,7 @@
     <Compile Include="Library\DanishTransportAuthorityResponseParserTests.cs" />
     <Compile Include="Library\RegistrationNumberTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\VehicleInspectionServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

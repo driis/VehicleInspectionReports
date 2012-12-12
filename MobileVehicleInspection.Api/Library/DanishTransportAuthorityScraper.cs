@@ -18,8 +18,19 @@ namespace MobileVehicleInspection.Api.Library
 
         public Vehicle ByRegistration(RegistrationNumber registration)
         {
+            var url = new Uri(String.Format(_settings.UrlTemplate, "Reg", registration));
+            return VehicleFromUrl(url);
+        }
+
+        public Vehicle ByVehicleIdentificationNumber(VehicleIdentificationNumber vin)
+        {
+            var url = new Uri(String.Format(_settings.UrlTemplate, "Vin", vin));
+            return VehicleFromUrl(url);
+        }
+
+        private Vehicle VehicleFromUrl(Uri url)
+        {
             var client = new WebClient {Encoding = Encoding.UTF8};
-            var url = new Uri(String.Format(_settings.UrlTemplate, registration));
             string result = null;
             try
             {

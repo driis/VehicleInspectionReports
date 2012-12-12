@@ -5,6 +5,7 @@ namespace MobileVehicleInspection.Api.Library
     public interface IVehicleInspectionLookup
     {
         Vehicle ByRegistration(RegistrationNumber registration);
+        Vehicle ByVehicleIdentificationNumber(VehicleIdentificationNumber vin);
     }
 
     public class ScraperSettings
