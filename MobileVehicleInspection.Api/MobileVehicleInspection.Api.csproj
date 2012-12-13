@@ -93,6 +93,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Library\CacheVehicleInspectionLookup.cs" />
     <Compile Include="Library\DanishTransportAuthorityResponseParser.cs" />
     <Compile Include="Library\DanishTransportAuthorityScraper.cs" />
     <Compile Include="Library\Guard.cs" />
