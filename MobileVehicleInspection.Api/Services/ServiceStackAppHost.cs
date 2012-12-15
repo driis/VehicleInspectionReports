@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.Configuration;
+using System.Web;
 using Funq;
 using MobileVehicleInspection.Api.Library;
 using ServiceStack.CacheAccess;
@@ -24,10 +25,12 @@ namespace MobileVehicleInspection.Api.Services
             container.Register(new ScraperSettings{
                 UrlTemplate = "http://selvbetjening.trafikstyrelsen.dk/Sider/resultater.aspx?{0}={1}"
             });
+
+            string redisUrl = ConfigurationManager.AppSettings["REDISCLOUD_URL"];
             container.RegisterAutoWired<DanishTransportAuthorityScraper>();
             container.RegisterAutoWired<DanishTransportAuthorityResponseParser>();
             container.Register<IVehicleInspectionLookup>(c => new CacheVehicleInspectionLookup(c.Resolve<ICacheClient>(), c.Resolve<DanishTransportAuthorityScraper>()));
-            container.Register<IRedisClientsManager>(c => new PooledRedisClientManager("localhost:6379"));
+            container.Register<IRedisClientsManager>(c => new PooledRedisClientManager(redisUrl));
             container.Register(c => c.Resolve<IRedisClientsManager>().GetCacheClient());
         }
 
