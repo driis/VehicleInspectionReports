@@ -8,7 +8,7 @@ namespace MobileVehicleInspection.Api
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            if (Request.IsLocal)
+            // if (Request.IsLocal)
                 Profiler.Start();
         }
 
