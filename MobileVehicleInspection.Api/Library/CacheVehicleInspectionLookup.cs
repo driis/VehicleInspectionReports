@@ -1,6 +1,7 @@
 ﻿using System;
 using MobileVehicleInspection.Contracts;
 using ServiceStack.CacheAccess;
+using ServiceStack.MiniProfiler;
 
 namespace MobileVehicleInspection.Api.Library
 {
@@ -28,13 +29,16 @@ namespace MobileVehicleInspection.Api.Library
         private Vehicle GetCached<TKey>(TKey key, Func<TKey, Vehicle> getter)
         {
             string formattedKey = String.Format("{0}_{1}", key.GetType().Name, key);
-            var v = _client.Get<Vehicle>(formattedKey);
-            if (v == null)
+            using (Profiler.Current.Step(string.Format("Get from cache: {0}", formattedKey)))
             {
-                v = getter(key);
-                _client.Set(formattedKey, v, TimeSpan.FromHours(2));
+                var v = _client.Get<Vehicle>(formattedKey);
+                if (v == null)
+                {
+                    v = Profiler.Current.Inline(() => getter(key), "Cache miss, get from Inner");
+                    _client.Set(formattedKey, v, TimeSpan.FromHours(2));
+                }
+                return v;    
             }
-            return v;
         }
     }
 }

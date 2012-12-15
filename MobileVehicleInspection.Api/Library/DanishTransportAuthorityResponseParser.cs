@@ -22,8 +22,7 @@ namespace MobileVehicleInspection.Api.Library
 
         public Vehicle Parse(string markup)
         {
-            var reader = new Sgml.SgmlReader();
-            reader.InputStream = new StringReader(markup);
+            var reader = new Sgml.SgmlReader {InputStream = new StringReader(markup)};
             XDocument doc = XDocument.Load(reader);
             var container = doc.Root.Descendants("div").SingleOrDefault(x => x.HasId("pnlVehicleInfo"));
             if (container == null)
