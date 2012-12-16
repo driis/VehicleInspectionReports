@@ -28,11 +28,22 @@ namespace MobileVehicleInspection.Api.Services
             });
 
             string redisUrl = GetCleanedRedisUrl();
+            ConfigureContainer(container, redisUrl);
+
+            // Filters
+            PreRequestFilters.Add((req,res) => Resolve<ApiKeyFilter>().Authorize(req));
+        }
+
+        private static void ConfigureContainer(Container container, string redisUrl)
+        {
             container.RegisterAutoWired<DanishTransportAuthorityScraper>();
             container.RegisterAutoWired<DanishTransportAuthorityResponseParser>();
-            container.Register<IVehicleInspectionLookup>(c => new CacheVehicleInspectionLookup(c.Resolve<ICacheClient>(), c.Resolve<DanishTransportAuthorityScraper>()));
+            container.Register<IVehicleInspectionLookup>(
+                c => new CacheVehicleInspectionLookup(c.Resolve<ICacheClient>(), c.Resolve<DanishTransportAuthorityScraper>()));
             container.Register<IRedisClientsManager>(c => new PooledRedisClientManager(redisUrl));
             container.Register(c => c.Resolve<IRedisClientsManager>().GetCacheClient());
+            container.Register(c => c.Resolve<IRedisClientsManager>().GetClient());
+            container.RegisterAutoWired<ApiKeyFilter>();
         }
 
         /// <summary>
